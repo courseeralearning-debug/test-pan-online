@@ -2,7 +2,6 @@
 //   every branch / PR : setup -> quality gates -> unit -> smoke
 //   main              : same + regression, Slack on every result
 //   failures          : Slack + email (culprits, team list)
-@Library('test-shared-lib') _
 
 pipeline {
   agent { label 'linux' }
@@ -82,8 +81,5 @@ pipeline {
 
   post {
     always   { junit allowEmptyResults: true, testResults: 'reports/junit-*.xml' }
-    success  { script { if (env.BRANCH_NAME == 'main') { notifyBuild('SUCCESS') } } }
-    unstable { notifyBuild('UNSTABLE') }
-    failure  { notifyBuild('FAILURE') }
   }
 }
