@@ -2,7 +2,7 @@
 //   every branch / PR : setup -> quality gates -> unit -> smoke
 //   main              : same + regression, Slack on every result
 //   failures          : Slack + email (culprits, team list)
-@Library('ci-shared') _
+@Library('test-shared-lib') _
 
 pipeline {
   agent { label 'linux' }
