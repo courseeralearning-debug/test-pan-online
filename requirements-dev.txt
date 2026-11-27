@@ -1,0 +1,8 @@
+ruff
+mypy
+types-requests
+bandit
+pip-audit
+pytest
+pytest-cov
+pytest-xdist
